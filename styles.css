@@ -1,0 +1,206 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Main background color */
+    color: white; /* Default text color */
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Game Container Styles */
+#game-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Status Message */
+#status {
+    font-size: 1.5em;
+    color: white; /* Status text color */
+    margin: 20px;
+}
+
+/* Launching Message */
+#launching-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white; /* Background color for the launching message */
+    color: black; /* Text color for the launching message */
+    border-radius: 10px;
+    z-index: 9999; /* Make sure it appears above other elements */
+}
+
+/* Error Message Container */
+#error-container {
+    position: relative; /* Allows for absolute positioning of modals within this container */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Ensures modals do not cause scrollbars */
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed; /* Changed to fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0, ); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto; /* Allows for scrolling if necessary */
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+/* Modal Content Styles */
+.modal-content {
+    background: white;
+    border: 2px solid red;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 80%;
+    box-sizing: border-box;
+    pointer-events: auto; /* Ensures modals are clickable */
+    z-index: 10000; /* Make sure modals are above all other content */
+    position: relative; /* Ensures that the button is within the content area */
+}
+
+/* Header Style */
+.modal-content h2 {
+    margin: 0;
+    color: red;
+    font-size: 1.2em;
+}
+
+/* Message Style */
+.modal-content p {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Close Button Style */
+.modal-content button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    position: absolute; /* Positioned inside modal content */
+    bottom: 10px;
+    right: 10px;
+}
+
+.modal-content button:hover {
+    background-color: darkred;
+}/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Main background color */
+    color: white; /* Default text color */
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Game Container Styles */
+#game-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Status Message */
+#status {
+    font-size: 1.5em;
+    color: white; /* Status text color */
+    margin: 20px;
+}
+
+/* Launching Message */
+#launching-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white; /* Background color for the launching message */
+    color: black; /* Text color for the launching message */
+    border-radius: 10px;
+    z-index: 9999; /* Make sure it appears above other elements */
+}
+
+/* Error Message Container */
+#error-container {
+    position: relative; /* Allows for absolute positioning of modals within this container */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Ensures modals do not cause scrollbars */
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed; /* Changed to fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto; /* Allows for scrolling if necessary */
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+/* Modal Content Styles */
+.modal-content {
+    background: white;
+    border: 2px solid red;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 80%;
+    box-sizing: border-box;
+    pointer-events: auto; /* Ensures modals are clickable */
+    z-index: 10000; /* Make sure modals are above all other content */
+    position: relative; /* Ensures that the button is within the content area */
+}
+
+/* Header Style */
+.modal-content h2 {
+    margin: 0;
+    color: red;
+    font-size: 1.2em;
+}
+
+/* Message Style */
+.modal-content p {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Close Button Style */
+.modal-content button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;-
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    position: absolute; /* Positioned inside modal content */
+    bottom: 10px;
+    right: 10px;
+}
+
+.modal-content button:hover {
+    background-color: darkred;
+}
