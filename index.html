@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virus Game</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Welcome to Virus Game</h1>
+        <p id="status">Checking for USB...</p>
+    </div>
+
+    <!-- Error message container -->
+    <div id="error-container"></div>
+
+    <script>
+        // Function to update the status message based on the presence of the USB
+        function updateStatus(message) {
+            document.getElementById('status').textContent = message;
+        }
+
+        // Function to create a fake error message
+        function createErrorMessage() {
+            const container = document.getElementById('error-container');
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            
+            const modalContent = document.createElement('div');
+            modalContent.className = 'modal-content';
+            
+            const header = document.createElement('h2');
+            header.textContent = 'Windows Security Alert';
+            
+            const message = document.createElement('p')
+            message.textContent = 'Your comupter has detected a virus of a unknow origin: Immediate action is required.'
+            
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'X';
+            closeButton.onclick = () => {
+                container.removeChild(modal);
+            };
+            
+            modalContent.appendChild(header);
+            modalContent.appendChild(message);
+            modalContent.appendChild(closeButton);
+            modal.appendChild(modalContent);
+
+            // Add to container
+            container.appendChild(modal);
+            
+            // Position the modal randomly on the screen
+            const maxWidth = window.innerWidth - modalContent.clientWidth;
+            const maxHeight = window.innerHeight - modalContent.clientHeight;
+            const left = Math.random() * maxWidth;
+            const top = Math.random() * maxHeight;
+            modalContent.style.position = 'absolute'; // Make sure it's absolutely positioned
+            modalContent.style.left = `${left}px`;
+            modalContent.style.top = `${top}px`;
+            modal.style.display = 'block';
+        }
+
+        // Function to show multiple fake error messages
+        function showMultipleErrorMessages() {
+            const numErrors = 5; // Number of error messages to show
+            for (let i = 0; i < numErrors; i++) {
+                setTimeout(createErrorMessage, i * 1000); // Show each message with a delay
+            }
+        }
+
+        // Function to check USB status from the server
+        function checkUSBStatus() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.usbDetected) {
+                        updateStatus('Launching game...');
+                        setTimeout(showMultipleErrorMessages, 2000); // Show error messages after a short delay
+                        console.log("Game has started")
+                    } else {
+                        updateStatus('USB not detected. Please insert the USB to launch the game.');
+                    }
+                })
+                .catch(error => {
+                    updateStatus('Error: Unable to check USB status.');
+                });
+        }
+
+        // Check the USB status every 5 seconds
+        setInterval(checkUSBStatus, 5000);
+        
+        // Initial check
+        checkUSBStatus();
+    </script>
+</body>
+</html>
